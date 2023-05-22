@@ -1,0 +1,48 @@
+ {% extends 'base.html' %}
+
+
+    {% block conteudo%}
+    
+        <h1 style='text-align: center'>Sobre</h1>
+        <hr>
+        <ol>
+
+            {% for registro in registros %}
+              
+                <p>
+                    <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample_{{registro.aluno}}" 
+                    role="button" aria-expanded="false" aria-controls="collapseExample_{{registro.aluno}}">
+                    {{registro.aluno}}
+                    </a>
+                </p>
+                <div class="collapse" id="collapseExample_{{registro.aluno}}">
+                    <div class="card card-body">
+                    {{registro.nota}}
+                    
+                    </div>
+                </div>    
+
+            {% endfor %}
+        
+
+        </ol>
+
+
+        <form action ="{{ url_for('sobre') }}" method="POST">
+
+            <div class="form-group">
+
+                <label >Aluno</label>
+                <input type="text" name='aluno' class="form-control1"  placeholder="aluno" required>
+              </div>
+
+            <div class="form-group">
+
+                <label for="exampleInputPassword1">Nota</label>
+                <input type="text" name='nota' class="form-control1"  placeholder="Nota" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+
+        </form>
+    {% endblock conteudo %}
+        

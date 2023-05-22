@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+<h1 style = "text-align: center;"> Testes de filmes</h1>
+<hr>
+<div class='row'>
+    
+{% for filme in filmes %}
+
+<div class='col-md-4'> 
+  <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{filme.logo_path}}</h5>
+          <p class="card-text">{{filme.name}}</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <hr>
+        </div>
+        <br>
+      </div>
+    </div>
+    <br>
+{% endfor %}
+   
+</div>
+
+{% endblock conteudo %}
